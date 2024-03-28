@@ -1,10 +1,11 @@
 package ru.job4j.assertj;
 
-import org.junit.jupiter.api.Test;
 import org.assertj.core.data.Index;
+import org.junit.jupiter.api.Test;
+
 import java.util.List;
-import java.util.Set;
 import java.util.Map;
+import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -23,33 +24,32 @@ class SimpleConvertTest {
     @Test
     void checkList() {
         SimpleConvert simpleConvert = new SimpleConvert();
-        List<String> list = simpleConvert.toList("one", "two", "three");
+        List<String> list = simpleConvert.toList("first", "second", "three");
         assertThat(list).hasSize(3)
-                .containsExactly("one", "two", "three")
-                .containsSequence("two", "three")
-                .allMatch(e -> e.length() < 7)
-                .first().isEqualTo("one");
+                .contains("three")
+                .containsAnyOf("zero", "seven", "five", "first")
+                .first().isEqualTo("first");
     }
 
     @Test
     void checkSet() {
         SimpleConvert simpleConvert = new SimpleConvert();
-        Set<String> set = simpleConvert.toSet("one", "two", "three");
+        Set<String> set = simpleConvert.toSet("first", "second", "three");
         assertThat(set).hasSize(3)
-                .doesNotContain("four")
-                .anyMatch(e -> e.equals("two"))
-                .filteredOn(e -> e.length() > 3).first().isEqualTo("three");
+                .containsExactlyInAnyOrder("second", "first", "three")
+                .anyMatch(e -> e.startsWith("th"))
+                .filteredOnAssertions(e -> assertThat(e).startsWith("f"))
+                .containsSequence("first");
     }
-
     @Test
     void checkMap() {
         SimpleConvert simpleConvert = new SimpleConvert();
-        Map<String, Integer> map = simpleConvert.toMap("one","two", "three");
+        Map<String, Integer> map = simpleConvert.toMap("first", "second", "three");
         assertThat(map).hasSize(3)
-                .containsKey("one")
-                .containsValue(2)
-                .doesNotContainKeys("four", "five")
-                .doesNotContainValue(4)
-                .containsEntry("one", 0);
+                .containsKeys("first", "second")
+                .doesNotContainKey("ten")
+                .containsEntry("three", 2)
+                .doesNotContainValue(9)
+                .containsValue(1);
     }
 }
