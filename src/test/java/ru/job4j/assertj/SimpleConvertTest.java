@@ -1,14 +1,7 @@
 package ru.job4j.assertj;
 
 import org.junit.jupiter.api.Test;
-
-import static org.assertj.core.api.Assertions.*;
-
 import org.assertj.core.data.Index;
-import org.junit.jupiter.api.Test;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.Map;
