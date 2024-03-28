@@ -21,17 +21,6 @@ class SimpleConvertTest {
     }
 
     @Test
-    void checkArray2() {
-        SimpleConvert simpleConvert = new SimpleConvert();
-        String[] array = simpleConvert.toArray("one", "two", "three");
-        assertThat(array).hasSize(3)
-                .contains("one", "two")
-                .containsOnly("two", "three", "one")
-                .startsWith("one")
-                .endsWith("three");
-    }
-
-    @Test
     void checkList() {
         SimpleConvert simpleConvert = new SimpleConvert();
         List<String> list = simpleConvert.toList("one", "two", "three");
