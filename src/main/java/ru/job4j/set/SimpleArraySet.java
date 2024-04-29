@@ -8,7 +8,6 @@ import java.util.Objects;
 public class SimpleArraySet<T> implements SimpleSet<T> {
 
     private SimpleArrayList<T> set = new SimpleArrayList<>(0);
-
     @Override
     public boolean add(T value) {
         boolean rsl = false;
@@ -25,11 +24,11 @@ public class SimpleArraySet<T> implements SimpleSet<T> {
         for (int i = 0; i < set.size(); i++) {
             if (Objects.equals(set.get(i), value)) {
                 rsl = true;
+                break;
             }
         }
         return rsl;
     }
-
     @Override
     public Iterator<T> iterator() {
         return set.iterator();
