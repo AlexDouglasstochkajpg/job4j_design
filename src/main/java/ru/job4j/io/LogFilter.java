@@ -22,7 +22,7 @@ public class LogFilter {
             List<String> list = input.lines().toList();
             for (String line : list) {
                 String[] lines = line.split(" ");
-                if (lines[lines.length - 2].equals("404")) {
+                if ("404".equals(lines[lines.length - 2])) {
                     result.add(line);
                 }
             }
