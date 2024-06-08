@@ -21,7 +21,7 @@ public class ArgsName {
         }
     }
 
-    public static ArgsName of(String[] args) {
+    private static void validate(String[] args) {
         if (args.length == 0) {
             throw new IllegalArgumentException("Arguments not passed to program");
         }
@@ -43,7 +43,11 @@ public class ArgsName {
                         "Error: This argument '" + s + "' does not contain a value");
             }
         }
+    }
+
+    public static ArgsName of(String[] args) {
         ArgsName names = new ArgsName();
+        validate(args);
         names.parse(args);
         return names;
     }
