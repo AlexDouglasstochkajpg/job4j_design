@@ -1,0 +1,8 @@
+<?xml version="1.1" encoding="UTF-8" ?>
+<city capital="true" foundationYear="1147" name="Moscow">
+    <population cityPopulation="13 million"/>
+    <districts>
+        <district>Kremlin</district>
+        <district>Arbat street</district>
+    </districts>
+</city>
