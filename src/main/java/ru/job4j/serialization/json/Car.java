@@ -15,6 +15,22 @@ public class Car {
         this.statuses = statuses;
     }
 
+    public boolean isAutoTransmission() {
+        return autoTransmission;
+    }
+
+    public int getPower() {
+        return power;
+    }
+
+    public Year getYear() {
+        return year;
+    }
+
+    public String[] getStatuses() {
+        return statuses;
+    }
+
     @Override
     public String toString() {
         return "Car{"

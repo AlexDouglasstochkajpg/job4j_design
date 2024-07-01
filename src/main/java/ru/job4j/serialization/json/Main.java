@@ -1,29 +1,30 @@
 package ru.job4j.serialization.json;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+        JSONObject jsonYear = new JSONObject("{\"releaseYear\":\"2023\"}");
+
+        List<String> list = new ArrayList<>();
+        list.add("Not tested");
+        list.add("Not verified");
+        JSONArray jsonStatuses = new JSONArray(list);
+
         final Car car = new Car(true, 150, new Year("2024"),
                 new String[] {"Tested", "Verified"});
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("autoTransmission", car.isAutoTransmission());
+        jsonObject.put("power", car.getPower());
+        jsonObject.put("year", jsonYear);
+        jsonObject.put("statuses", jsonStatuses);
 
-        final Gson gson = new GsonBuilder().create();
-        System.out.println(gson.toJson(car));
+        System.out.println(jsonObject);
 
-        final String carJson =
-                "{"
-                        + "\"autoTransmission\":false,"
-                        + "\"power\":130,"
-                        + "\"year\":"
-                        + "{"
-                        + "\"releaseYear\":\"2023\""
-                        + "},"
-                        + "\"statuses\":"
-                        + "[\"Not tested\",\"Not verified\"]"
-                        + "}";
-
-        final Car carMod = gson.fromJson(carJson, Car.class);
-        System.out.println(carMod);
+        System.out.println(new JSONObject(car));
     }
 }

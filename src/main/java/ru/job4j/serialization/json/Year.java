@@ -7,6 +7,10 @@ public class Year {
         this.releaseYear = releaseYear;
     }
 
+    public String getReleaseYear() {
+        return releaseYear;
+    }
+
     @Override
     public String toString() {
         return "Year{"
