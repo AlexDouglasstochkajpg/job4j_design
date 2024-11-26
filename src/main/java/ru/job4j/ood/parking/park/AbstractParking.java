@@ -109,3 +109,4 @@ public abstract class AbstractParking implements Park {
         return List.copyOf(parkingForCargo);
     }
 }
+/*класс реализует методы интерфейса Park*/

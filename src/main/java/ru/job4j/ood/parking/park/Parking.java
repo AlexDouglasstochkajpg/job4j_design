@@ -4,3 +4,4 @@ public class Parking extends AbstractParking {
         super(sizeForPassenger, sizeForCargo);
     }
 }
+/*класс наследует класс AbstractParking и вызывает его конструктор*/

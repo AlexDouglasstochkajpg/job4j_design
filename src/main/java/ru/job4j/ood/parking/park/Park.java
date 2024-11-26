@@ -7,3 +7,4 @@ public interface Park {
     Car findByName(String name);
     List<Car> findAll();
 }
+/*интерфейс имеет основные методы работы с объектом Car и реализуется классом AbstractParking*/
