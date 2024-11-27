@@ -42,3 +42,4 @@ class ParkingTest {
         assertTrue(cars.containsAll(parking.findAll()));
     }
 }
+/*тесты*/
