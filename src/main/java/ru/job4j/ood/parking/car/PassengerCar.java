@@ -5,5 +5,6 @@ public class PassengerCar extends Car {
     public PassengerCar(String name) {
         super(SIZE, name);
     }
+
 }
 /*класс наследует модель данных Car*/
