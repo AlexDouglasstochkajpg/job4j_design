@@ -1,11 +1,7 @@
 package ru.job4j.algo.sort;
-
 import org.junit.jupiter.api.Test;
-
-import static org.assertj.core.api.Assertions.*;
-
+import static org.assertj.core.api.Assertions.assertThat;
 public class IntervalMergeTest {
-
     @Test
     public void whenIntervalsHaveOverlapsThenMergeOverlappingIntervals() {
         IntervalMerge intervalMerger = new IntervalMerge();
@@ -14,7 +10,6 @@ public class IntervalMergeTest {
         int[][] result = intervalMerger.merge(intervals);
         assertThat(result).isDeepEqualTo(expected);
     }
-
     @Test
     public void whenIntervalsTouchAtEdgesThenMergeIntervals() {
         IntervalMerge intervalMerger = new IntervalMerge();
@@ -23,7 +18,6 @@ public class IntervalMergeTest {
         int[][] result = intervalMerger.merge(intervals);
         assertThat(result).isDeepEqualTo(expected);
     }
-
     @Test
     public void whenIntervalsAreNonOverlappingThenReturnSameIntervals() {
         IntervalMerge intervalMerger = new IntervalMerge();
@@ -32,7 +26,6 @@ public class IntervalMergeTest {
         int[][] result = intervalMerger.merge(intervals);
         assertThat(result).isDeepEqualTo(expected);
     }
-
     @Test
     public void whenIntervalsFullyOverlapThenMergeIntoOneInterval() {
         IntervalMerge intervalMerger = new IntervalMerge();
@@ -41,7 +34,6 @@ public class IntervalMergeTest {
         int[][] result = intervalMerger.merge(intervals);
         assertThat(result).isDeepEqualTo(expected);
     }
-
     @Test
     public void whenIntervalsAreMixedThenMergeOverlappingAndKeepNonOverlapping() {
         IntervalMerge intervalMerger = new IntervalMerge();
@@ -50,5 +42,4 @@ public class IntervalMergeTest {
         int[][] result = intervalMerger.merge(intervals);
         assertThat(result).isDeepEqualTo(expected);
     }
-
 }

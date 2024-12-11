@@ -1,30 +1,35 @@
 package ru.job4j.algo.sort;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-class IntervalMerge {
+public class IntervalMerge {
     public int[][] merge(int[][] intervals) {
+        int[][] result;
         if (intervals.length == 0) {
-            return new int[0][];
-        }
-        Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));
-        List<int[]> merged = new ArrayList<>();
-        int[] currentInterval = intervals[0];
-        merged.add(currentInterval);
-        for (int[] interval : intervals) {
-            int currentEnd = currentInterval[1];
-            int nextStart = interval[0];
-            int nextEnd = interval[1];
-            if (currentEnd >= nextStart) {
-                currentInterval[1] = Math.max(currentEnd, nextEnd);
-            } else {
-                currentInterval = interval;
-                merged.add(currentInterval);
+            result = new int[0][0];
+        } else {
+            int[][] tempArr = new int[intervals.length][2];
+            int counterCellsInResult = 0;
+            int startI = intervals[0][0];
+            int endI = intervals[0][1];
+            for (int i = 1; i < intervals.length; i++) {
+                int tempStartInterval = intervals[i][0];
+                int tempEndtInterval = intervals[i][1];
+                if ((tempStartInterval >= startI && tempStartInterval <= endI)
+                        || (tempEndtInterval >= startI && tempEndtInterval <= endI)) {
+                    startI = Math.min(startI, tempStartInterval);
+                    endI = Math.max(endI, tempEndtInterval);
+                } else {
+                    tempArr[counterCellsInResult++] = new int[]{startI, endI};
+                    startI = tempStartInterval;
+                    endI = tempEndtInterval;
+                }
+                if (i == intervals.length - 1) {
+                    tempArr[counterCellsInResult++] = new int[]{startI, endI};
+                }
+            }
+            result = new int[counterCellsInResult][2];
+            for (int i = 0; i < counterCellsInResult; i++) {
+                result[i] = tempArr[i];
             }
         }
-        return merged.toArray(new int[merged.size()][]);
+        return result;
     }
-
 }
