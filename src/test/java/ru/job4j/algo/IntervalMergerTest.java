@@ -1,11 +1,11 @@
 package ru.job4j.algo;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
-class IntervalMergeTest {
+class IntervalMergerTest {
     @Test
     public void whenIntervalsHaveOverlapsThenMergeOverlappingIntervals() {
         IntervalMerger intervalMerger = new IntervalMerger();
-        int[][] intervals = new int[][]{{1, 3}, {2, 6}, {8, 1}, {15, 18}};
+        int[][] intervals = new int[][]{{1, 3}, {2, 6}, {8, 10}, {15, 18}};
         int[][] expected = new int[][]{{1, 6}, {8, 10}, {15, 18}};
         int[][] result = intervalMerger.merge(intervals);
         assertThat(result).isDeepEqualTo(expected);
