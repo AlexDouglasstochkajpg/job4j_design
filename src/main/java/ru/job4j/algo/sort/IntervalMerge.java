@@ -27,4 +27,5 @@ class IntervalMerge {
         }
         return merged.toArray(new int[merged.size()][]);
     }
+
 }
