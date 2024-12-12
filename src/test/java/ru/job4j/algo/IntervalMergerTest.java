@@ -1,7 +1,7 @@
 package ru.job4j.algo;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
-class IntervalMergerTest {
+class IntervalMergeTest {
     @Test
     public void whenIntervalsHaveOverlapsThenMergeOverlappingIntervals() {
         IntervalMerger intervalMerger = new IntervalMerger();
