@@ -2,6 +2,7 @@ package ru.job4j.algo.sort;
 
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.*;
+
 public class MergeTest {
     @Test
     void whenSortedNormal() {
