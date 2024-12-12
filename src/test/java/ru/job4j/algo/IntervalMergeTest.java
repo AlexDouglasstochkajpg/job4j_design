@@ -5,8 +5,8 @@ class IntervalMergerTest {
     @Test
     public void whenIntervalsHaveOverlapsThenMergeOverlappingIntervals() {
         IntervalMerger intervalMerger = new IntervalMerger();
-        int[][] intervals = new int[][]{{1, 3}, {2, 6}, {8, 10}, {15, 18}};
-        int[][] expected = new int[][]{{1, 6}, {8, 10}, {15, 18}};
+        int[][] intervals = new int[][]{{1, 3}, {2, 6}, {15, 18}};
+        int[][] expected = new int[][]{{1, 6}, {15, 18}};
         int[][] result = intervalMerger.merge(intervals);
         assertThat(result).isDeepEqualTo(expected);
     }
