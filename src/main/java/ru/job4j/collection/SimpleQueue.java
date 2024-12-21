@@ -10,17 +10,16 @@ public class SimpleQueue<T> {
     private int outSize;
 
     public T poll() {
-        if (intSize == 0 && outSize == 0) {
+        if (outSize == 0 && intSize == 0) {
             throw new NoSuchElementException("Queue is empty");
         }
-        for (int i = 0; i < intSize; i++) {
-            if (outSize != 0) {
-                input.push(output.pop());
+        if (outSize == 0) {
+            while (intSize > 0) {
+                output.push(input.pop());
+                intSize--;
+                outSize++;
             }
-            output.push(input.pop());
         }
-        outSize = intSize;
-        intSize = 0;
         outSize--;
         return output.pop();
     }
@@ -28,5 +27,13 @@ public class SimpleQueue<T> {
     public void push(T value) {
         input.push(value);
         intSize++;
+    }
+
+    public int size() {
+        return intSize + outSize;
+    }
+
+    public boolean isEmpty() {
+        return size() == 0;
     }
 }
