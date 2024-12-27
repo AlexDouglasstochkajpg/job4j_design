@@ -55,5 +55,4 @@ public class Node<E> {
     public int hashCode() {
         return Objects.hashCode(getValue());
     }
-
 }
