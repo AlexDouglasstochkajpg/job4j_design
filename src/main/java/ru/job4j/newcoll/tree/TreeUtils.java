@@ -55,7 +55,6 @@ public class TreeUtils<T> {
     }
 
     private Optional<Node<T>> findOrDivideByKey(Node<T> root, T key, boolean needDelete) {
-        /* Да, возможно, немного "наговнокодил" в этом методе, но зато код не дублируется в двух предыдущих методах )))) */
         SimpleStack<Node<T>> stack = new SimpleStack<>();
         Optional<Node<T>> result = Optional.empty();
         int count = 0;
